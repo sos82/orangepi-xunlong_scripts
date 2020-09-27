@@ -78,11 +78,11 @@ prepare_host()
 	fi
 
 	apt-get -y --no-install-recommends --fix-missing install \
-		        bsdtar mtools u-boot-tools pv bc \
+		        libarchive-tools mtools u-boot-tools pv bc \
 		        gcc automake make binfmt-support flex \
 		        lib32z1 lib32z1-dev qemu-user-static bison \
-		        dosfstools libncurses5-dev lib32stdc++-5-dev debootstrap \
-		        swig libpython2.7-dev libssl-dev python-minimal
+		        dosfstools libncurses5-dev lib32stdc++-7-dev debootstrap \
+		        swig libpython2.7-dev libssl-dev python2-minimal
 
 	# Prepare toolchains
 	chmod 755 -R $ROOT/toolchain/*
