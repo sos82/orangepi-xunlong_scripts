@@ -50,6 +50,7 @@ do_chroot() {
 
 do_conffile() {
         mkdir -p $DEST/opt/boot
+	mkdir -p $DEST/etc/ssh
 	if [ $KERNELVER = 0 ]; then
         	cp $EXTER/install_to_emmc_$OS $DEST/usr/local/sbin/install_to_emmc -f
         	cp $EXTER/uboot/*.bin $DEST/opt/boot/ -f
@@ -342,6 +343,7 @@ server_setup()
 	if [ $PLATFORM = "zero_plus2_h3" ];then
 		:
 	else
+	mkdir -p $DEST/etc/network/interfaces.d
 	cat > "$DEST/etc/network/interfaces.d/eth0" <<EOF
 auto eth0
 iface eth0 inet dhcp
